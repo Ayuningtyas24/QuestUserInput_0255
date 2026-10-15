@@ -3,6 +3,8 @@ package com.example.questuserinput
 import android.R.attr.label
 import android.R.attr.singleLine
 import android.R.attr.top
+import android.graphics.Color
+import android.widget.Button
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -65,4 +68,13 @@ fun FormDataDiri(modifier: Modifier){
             }
         }
     }
+    OutlinedTextField(
+        value = textAlamat,
+        singleLine = true,
+        modifier = Modifier.width(250.dp),
+        label = { Text(text = "Alamat") },
+        onValueChange = {
+            textAlamat = it
+        }
+    )
 }
