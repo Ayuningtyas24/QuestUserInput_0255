@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
@@ -21,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -47,5 +49,20 @@ fun FormDataDiri(modifier: Modifier){
             label = { Text(text = "Nama Lengkap") },
             onValueChange = { textNama = it }
         )
+    }
+    Row{
+        gender.forEach{item ->
+            Row(modifier = Modifier.selectable(
+                selected = textJK == item,
+                onClick = { textJK = item }
+            ), verticalAlignment = Alignment.CenterVertically) {
+                RadioButton(
+                    selected = textJK == item,
+                    onClick = {
+                        textJK = item
+                    })
+                Text(item)
+            }
+        }
     }
 }
